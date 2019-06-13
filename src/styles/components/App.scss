@@ -1,0 +1,163 @@
+$main-color: #282c34;
+
+.App {
+	text-align: center;
+	background-color: $main-color;
+	min-height: 100vh;
+	color: white;
+	font-size: calc(1rem + 2vmin);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.passwordResultContainer {
+		height: calc(0.9rem + 2vmin);
+		display: flex;
+		flex-direction: row;
+		margin-bottom: 2rem;
+		width: 50%;
+		outline: 1px solid black;
+        font-size: calc(0.4rem + 2vmin);
+        position: relative;
+        border-radius: 10px;
+
+		.passwordResult {
+			text-overflow: ellipsis;
+            overflow: hidden;
+            line-break: strict;
+            width: 100%;
+		}
+
+		.copyButton {
+			width: 20%;
+            background-color: lighten($main-color, 40);
+            font-weight: bold;
+			color: darken($main-color, 50);
+			border: none;
+            outline: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: calc(0.9rem + 2vmin);
+
+            &:hover {
+                background-color: lightblue;
+            }
+            &:active {
+                box-shadow: inset 0px 0px 6px 2px black;
+            }
+		}
+	}
+
+	h1 {
+		font-size: calc(1.5rem + 2vmin);
+		font-weight: normal;
+		font-style: italic;
+		margin-bottom: 2rem;
+	}
+
+	.optionsSection {
+		display: flex;
+		flex-direction: column;
+		max-width: 30rem;
+		margin: 0 auto;
+		justify-content: center;
+		align-items: center;
+
+		.optionSelectionContainer {
+			font-size: calc(0.4rem + 2vmin);
+			line-height: calc(0.8rem + 2vmin);
+			margin: 0rem 0rem 1rem 0;
+
+			display: flex;
+			flex-wrap: wrap;
+
+			.optionSelection {
+				width: 50%;
+				margin: 1rem 0rem;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				user-select: none;
+
+				.optionCheckbox {
+					font-size: calc(0.8rem + 2vmin);
+					padding: 0.3rem;
+					outline: 1px solid darken($main-color, 5);
+					background-color: red;
+
+					&-isSelected {
+						background-color: green;
+					}
+				}
+			}
+		}
+
+		.optionContainer {
+			font-size: calc(0.4rem + 2vmin);
+			line-height: calc(0.8rem + 2vmin);
+            margin: 1rem 0;
+            
+            &-custom textarea {
+                width: 75%;
+				background-color: lighten($main-color, 50);
+                font-size: calc(0.3rem + 2vmin);
+                text-align: center;
+                font-family: inherit;
+                border-radius: 3px;
+            }
+
+			input {
+				text-align: center;
+				width: 30%;
+				padding: 3px;
+				background-color: lighten($main-color, 50);
+				outline: none;
+				border: none;
+				font-size: calc(0.6rem + 2vmin);
+                margin: 5px;
+                border-radius: 3px;
+
+				&:focus {
+					background-color: lighten($main-color, 70);
+					box-shadow: inset 0px 0px 3px 1px black;
+					outline: 1px solid gray;
+				}
+			}
+		}
+	}
+}
+
+.randomButton {
+	width: 45%;
+	padding: 1rem;
+	font-size: calc(1rem + 2vmin);
+	background-color: darken($main-color, 5);
+	color: lighten($main-color, 50);
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	box-shadow: 0px 0px 10px 2px black;
+	margin-bottom: 1rem;
+}
+
+#errorMessage {
+	color: red;
+}
+
+footer {
+	margin-top: 5rem;
+	font-size: calc(0.2rem + 2vmin);
+	a {
+		color: lightblue;
+		text-decoration: none;
+
+		&:hover {
+			color: lightgreen;
+		}
+	}
+}
+
+@media (max-width: 500px) {
+
+}
