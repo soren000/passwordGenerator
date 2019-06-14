@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import passTest from 'owasp-password-strength-test';
+import classNames from 'classnames';
 import './styles/main.scss';
 import { FaCheck, FaTimes } from 'react-icons/fa';
 
 const App = () => {
   const [result, setResult] = useState('');
+  const [passwordStrength, setPasswordStrength] = useState([]);
   const [passwordLength, setPasswordLength] = useState(8);
   const [customCharacters, setCustomCharacters] = useState('');
   const [capitalLetters, setCapitalLetters] = useState(true);
@@ -39,12 +42,12 @@ const App = () => {
     } else {
       setError('')
     }
-
     let password = '';
     for (let i = 0; i <= passwordLength - 1; i++) {
       password += finalPossible.charAt(Math.floor(Math.random() * Math.floor(finalPossible.length)));
     }
 
+    setPasswordStrength(passTest.test(password).errors);
     setResult(password);
   }
 
@@ -62,8 +65,6 @@ const App = () => {
       console.log(e);
     }
   }
-
-
   // const isOverFlowing = (id) => {
   //   const element = document.getElementById(id);
   //   console.log(element);
@@ -79,6 +80,18 @@ const App = () => {
         <button onClick={copyPassword} className="copyButton">Copy</button>
       </div>
       {error && <p id="errorMessage">There were no possible characters to choose from.</p>}
+      {result &&
+        <div className="passwordStrengthContainer">
+          <div className={classNames({ 'passwordStrengthNode': true, "passwordStrengthNode-good": result && !passwordStrength[4] })}></div>
+          <div className={classNames({ 'passwordStrengthNode': true, "passwordStrengthNode-good": result && !passwordStrength[3] })}></div>
+          <div className={classNames({ 'passwordStrengthNode': true, "passwordStrengthNode-good": result && !passwordStrength[2] })}></div>
+          <div className={classNames({ 'passwordStrengthNode': true, "passwordStrengthNode-good": result && !passwordStrength[1] })}></div>
+          <div className={classNames({ 'passwordStrengthNode': true, "passwordStrengthNode-good": result && !passwordStrength[0] })}></div>
+        </div>
+      }
+      <div className="passwordProblems">
+        {passwordStrength.map((strengthProblem, index) => <p key={index}>{strengthProblem.replace('must', 'should')}</p>)}
+      </div>
       <div className="optionsSection">
         <button onClick={randomGen} className="randomButton">Randomize</button>
         <div className="optionContainer">

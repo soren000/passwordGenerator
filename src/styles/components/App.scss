@@ -8,7 +8,15 @@ $main-color: #282c34;
 	font-size: calc(1rem + 2vmin);
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+    align-items: center;
+    
+    .passwordProblems {
+        font-size: calc(.1rem + 1.5vmin);
+        margin-bottom: 1.5rem;
+        width: 50%;
+        color: red;
+        list-style: none;
+    }
 
 	.passwordResultContainer {
 		height: calc(0.9rem + 2vmin);
@@ -17,35 +25,35 @@ $main-color: #282c34;
 		margin-bottom: 2rem;
 		width: 50%;
 		outline: 1px solid black;
-        font-size: calc(0.4rem + 2vmin);
-        position: relative;
-        border-radius: 10px;
+		font-size: calc(0.4rem + 2vmin);
+		position: relative;
+		border-radius: 10px;
 
 		.passwordResult {
 			text-overflow: ellipsis;
-            overflow: hidden;
-            line-break: strict;
-            width: 100%;
+			overflow: hidden;
+			line-break: strict;
+			width: 100%;
 		}
 
 		.copyButton {
 			width: 20%;
-            background-color: lighten($main-color, 40);
-            font-weight: bold;
+			background-color: lighten($main-color, 40);
+			font-weight: bold;
 			color: darken($main-color, 50);
 			border: none;
-            outline: none;
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: calc(0.9rem + 2vmin);
+			outline: none;
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: calc(0.9rem + 2vmin);
 
-            &:hover {
-                background-color: lightblue;
-            }
-            &:active {
-                box-shadow: inset 0px 0px 6px 2px black;
-            }
+			&:hover {
+				background-color: lightblue;
+			}
+			&:active {
+				box-shadow: inset 0px 0px 6px 2px black;
+			}
 		}
 	}
 
@@ -68,7 +76,7 @@ $main-color: #282c34;
 			font-size: calc(0.4rem + 2vmin);
 			line-height: calc(0.8rem + 2vmin);
 			margin: 0rem 0rem 1rem 0;
-
+			align-items: center;
 			display: flex;
 			flex-wrap: wrap;
 
@@ -96,16 +104,20 @@ $main-color: #282c34;
 		.optionContainer {
 			font-size: calc(0.4rem + 2vmin);
 			line-height: calc(0.8rem + 2vmin);
-            margin: 1rem 0;
-            
-            &-custom textarea {
-                width: 75%;
+			margin: 1rem 0;
+
+			&-custom {
+				width: 100%;
+			}
+
+			&-custom textarea {
+				width: 80%;
 				background-color: lighten($main-color, 50);
-                font-size: calc(0.3rem + 2vmin);
-                text-align: center;
-                font-family: inherit;
-                border-radius: 3px;
-            }
+				font-size: calc(0.3rem + 2vmin);
+				text-align: center;
+				font-family: inherit;
+				border-radius: 3px;
+			}
 
 			input {
 				text-align: center;
@@ -115,8 +127,8 @@ $main-color: #282c34;
 				outline: none;
 				border: none;
 				font-size: calc(0.6rem + 2vmin);
-                margin: 5px;
-                border-radius: 3px;
+				margin: 5px;
+				border-radius: 3px;
 
 				&:focus {
 					background-color: lighten($main-color, 70);
@@ -158,6 +170,22 @@ footer {
 	}
 }
 
-@media (max-width: 500px) {
+.passwordStrengthContainer {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 1rem;
 
+	.passwordStrengthNode {
+		width: 20px;
+		height: 20px;
+		margin: 5px;
+		border-radius: 4px;
+        background:linear-gradient(darken(red, 20), red);
+		outline: 1px solid darken($main-color, 5);
+		box-shadow: 0px 0px 3px 1px black;
+
+		&-good {
+			background: linear-gradient(darken(green, 12), green);
+		}
+	}
 }
