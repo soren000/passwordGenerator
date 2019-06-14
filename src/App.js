@@ -7,7 +7,7 @@ import { FaCheck, FaTimes } from 'react-icons/fa';
 const App = () => {
   const [result, setResult] = useState('');
   const [passwordStrength, setPasswordStrength] = useState([]);
-  const [passwordLength, setPasswordLength] = useState(8);
+  const [passwordLength, setPasswordLength] = useState(10);
   const [customCharacters, setCustomCharacters] = useState('');
   const [capitalLetters, setCapitalLetters] = useState(true);
   const [lowerLetters, setLowerLetters] = useState(true);
