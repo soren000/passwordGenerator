@@ -22,4 +22,5 @@ It will also show a meter for how strong the password is.
 
 ### Changelog
 June 13th, 2019 - Initial creation
+
 June 14th, 2019 - Minor styling changes, added strength meter
